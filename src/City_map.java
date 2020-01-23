@@ -105,31 +105,31 @@ public class City_map extends JPanel {
 			Vehicle vehicle= VEHICLE_LIST.get(i);
 			
 			
-			if(vehicle.turn1==true & !vehicle.road.equals("in") ) {
+			if(vehicle.TURN_1 ==true & !vehicle.TRAFFIC_ROAD.equals("in") ) {
 				vehicle.setY(vehicle.getY()+vehicle.getSpeed() );
-				vehicle.setPosition(vehicle.getY()+vehicle.getSpeed());
+				vehicle.setVEHICLE_POSITION(vehicle.getY()+vehicle.getSpeed());
 				vehicle.setRoad(vehicle.getX(), vehicle.getY());
 				
 				
 				
 			}
-			else if(vehicle.turn2==true & !vehicle.road.equals("in")){
+			else if(vehicle.TURN_2 ==true & !vehicle.TRAFFIC_ROAD.equals("in")){
 				vehicle.setY(vehicle.getY()-vehicle.getSpeed());
-				vehicle.setPosition(vehicle.getY()-vehicle.getSpeed());
+				vehicle.setVEHICLE_POSITION(vehicle.getY()-vehicle.getSpeed());
 				vehicle.setRoad(vehicle.getX(), vehicle.getY());
 			
 				
 				}
-			else if(vehicle.turn3==true & !vehicle.road.equals("in")){
+			else if(vehicle.TURN_3 ==true & !vehicle.TRAFFIC_ROAD.equals("in")){
 				vehicle.setX(vehicle.getX()-vehicle.getSpeed());
-				vehicle.setPosition(vehicle.getX()-vehicle.getSpeed());
+				vehicle.setVEHICLE_POSITION(vehicle.getX()-vehicle.getSpeed());
 				vehicle.setRoad(vehicle.getX(), vehicle.getY());
 				
 			
 			}
-			else if(vehicle.turn3==false & vehicle.turn3==false & vehicle.turn3==false & !vehicle.road.equals("in")) {
+			else if(vehicle.TURN_3 ==false & vehicle.TURN_3 ==false & vehicle.TURN_3 ==false & !vehicle.TRAFFIC_ROAD.equals("in")) {
 				vehicle.setX(vehicle.getX()+vehicle.getSpeed());
-				vehicle.setPosition(vehicle.getX()+vehicle.getSpeed());
+				vehicle.setVEHICLE_POSITION(vehicle.getX()+vehicle.getSpeed());
 				vehicle.setRoad(vehicle.getX(), vehicle.getY());
 				
 			
@@ -138,14 +138,14 @@ public class City_map extends JPanel {
 				if(vehicle.current==true) {
 					
 					int count=0;
-					if(vehicle.signal.equals("s1")) {count=0;}
-					else if(vehicle.signal.equals("s2")) {count=1;}
-					else if(vehicle.signal.equals("s3")) {count=2;}
-					else if(vehicle.signal.equals("s4")) {count=3;}
-					else if(vehicle.signal.equals("s5")) {count=4;}
-					else if(vehicle.signal.equals("s6")) {count=5;}
-					else if(vehicle.signal.equals("s7")) {count=6;}
-					else if(vehicle.signal.equals("s8")) {count=7;}
+					if(vehicle.TRAFFIC_SIGNAL.equals("s1")) {count=0;}
+					else if(vehicle.TRAFFIC_SIGNAL.equals("s2")) {count=1;}
+					else if(vehicle.TRAFFIC_SIGNAL.equals("s3")) {count=2;}
+					else if(vehicle.TRAFFIC_SIGNAL.equals("s4")) {count=3;}
+					else if(vehicle.TRAFFIC_SIGNAL.equals("s5")) {count=4;}
+					else if(vehicle.TRAFFIC_SIGNAL.equals("s6")) {count=5;}
+					else if(vehicle.TRAFFIC_SIGNAL.equals("s7")) {count=6;}
+					else if(vehicle.TRAFFIC_SIGNAL.equals("s8")) {count=7;}
 					
 					if(count==0) {
 						TRAFFIC_LIGHT_LIST.get(count).set_signal_color(false, false, true);
@@ -155,24 +155,24 @@ public class City_map extends JPanel {
 						TRAFFIC_LIGHT_LIST.get(count-1).set_signal_color(true, false, false);
 						TRAFFIC_LIGHT_LIST.get(count).set_signal_color(false, false, true);
 					}
-					if(vehicle.turn1==true) {
+					if(vehicle.TURN_1 ==true) {
 						vehicle.setY(vehicle.getY()+vehicle.getSpeed() );
 						vehicle.setRoad(vehicle.getX(), vehicle.getY());	
 					}
-					else if(vehicle.turn2==true){
+					else if(vehicle.TURN_2 ==true){
 						vehicle.setY(vehicle.getY()-vehicle.getSpeed());
 						
 						vehicle.setRoad(vehicle.getX(), vehicle.getY());
 					
 						
 						}
-					else if(vehicle.turn3==true ){
+					else if(vehicle.TURN_3 ==true ){
 						vehicle.setX(vehicle.getX()-vehicle.getSpeed());
 						vehicle.setRoad(vehicle.getX(), vehicle.getY());
 						
 					
 					}
-					else if(vehicle.turn3==false & vehicle.turn3==false & vehicle.turn3==false ) {
+					else if(vehicle.TURN_3 ==false & vehicle.TURN_3 ==false & vehicle.TURN_3 ==false ) {
 						vehicle.setX(vehicle.getX()+vehicle.getSpeed());
 						vehicle.setRoad(vehicle.getX(), vehicle.getY());
 						

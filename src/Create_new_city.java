@@ -12,8 +12,8 @@ public class Create_new_city extends JPanel {
 	ArrayList<Vehicle> v=new ArrayList<Vehicle>();
 	ArrayList<Traffic_light> s=new ArrayList<Traffic_light>();
 	public Create_new_city(String n, int roads) {
-		setBackground(Color.DARK_GRAY);
-		setForeground(Color.DARK_GRAY);
+		setBackground(Color.BLUE);
+		setForeground(Color.BLUE);
 		setBounds(187, 0, 855, 590);
 		setLayout(null);
 		setVisible(true);
@@ -36,7 +36,7 @@ public class Create_new_city extends JPanel {
 			g.setColor(Color.GRAY);
 			g.fillRect(0, 100, 870, 50);
 			
-			g.setColor(Color.WHITE);
+			g.setColor(Color.BLACK);
 			for(int a=laneHeight;a<laneHeight*4;a=a+laneHeight) {
 				for(int b=0;b<getWidth();b+=40) {
 					g.fillRect(b, 120, 30, 5);
@@ -50,7 +50,7 @@ public class Create_new_city extends JPanel {
 			g.setColor(Color.GRAY);
 			g.fillRect(0, 100, 870, 50);
 			
-			g.setColor(Color.WHITE);
+			g.setColor(Color.BLACK);
 			for(int a=laneHeight;a<laneHeight*4;a=a+laneHeight) {
 				for(int b=0;b<getWidth();b+=40) {
 					g.fillRect(b, 120, 30, 5);
@@ -59,23 +59,18 @@ public class Create_new_city extends JPanel {
 		g.setColor(Color.GRAY);
 		g.fillRect(350, 0, 50, 600);
 		
-		g.setColor(Color.WHITE);
+		g.setColor(Color.BLACK);
 		for(int a=laneHeight;a<laneHeight*4;a=a+laneHeight) {
 			for(int b=0;b<getHeight();b+=40) {
 				g.fillRect(375, b, 5, 30);
 			}
 		}}
-		
-		
-		
-		
-		
-		
+
 		else if(roads<=6) {
 			g.setColor(Color.GRAY);
 			g.fillRect(0, 100, 870, 50);
 			
-			g.setColor(Color.WHITE);
+			g.setColor(Color.BLACK);
 			for(int a=laneHeight;a<laneHeight*4;a=a+laneHeight) {
 				for(int b=0;b<getWidth();b+=40) {
 					g.fillRect(b, 120, 30, 5);
@@ -84,7 +79,7 @@ public class Create_new_city extends JPanel {
 		g.setColor(Color.GRAY);
 		g.fillRect(350, 0, 50, 600);
 		
-		g.setColor(Color.WHITE);
+		g.setColor(Color.BLACK);
 		for(int a=laneHeight;a<laneHeight*4;a=a+laneHeight) {
 			for(int b=0;b<getHeight();b+=40) {
 				g.fillRect(375, b, 5, 30);
@@ -93,7 +88,7 @@ public class Create_new_city extends JPanel {
 		g.setColor(Color.GRAY);
 		g.fillRect(0, 400, 870, 50);
 		
-		g.setColor(Color.WHITE);
+		g.setColor(Color.BLACK);
 		for(int a=laneHeight;a<laneHeight*4;a=a+laneHeight) {
 			for(int b=0;b<getWidth();b+=40) {
 				g.fillRect(b, 420, 30, 5);
@@ -105,7 +100,7 @@ public class Create_new_city extends JPanel {
 			g.setColor(Color.GRAY);
 			g.fillRect(0, 100, 870, 50);
 			
-			g.setColor(Color.WHITE);
+			g.setColor(Color.BLACK);
 			for(int a=laneHeight;a<laneHeight*4;a=a+laneHeight) {
 				for(int b=0;b<getWidth();b+=40) {
 					g.fillRect(b, 120, 30, 5);
@@ -114,7 +109,7 @@ public class Create_new_city extends JPanel {
 		g.setColor(Color.GRAY);
 		g.fillRect(350, 0, 50, 600);
 		
-		g.setColor(Color.WHITE);
+		g.setColor(Color.BLACK);
 		for(int a=laneHeight;a<laneHeight*4;a=a+laneHeight) {
 			for(int b=0;b<getHeight();b+=40) {
 				g.fillRect(375, b, 5, 30);
@@ -123,7 +118,7 @@ public class Create_new_city extends JPanel {
 		g.setColor(Color.GRAY);
 		g.fillRect(0, 400, 870, 50);
 		
-		g.setColor(Color.WHITE);
+		g.setColor(Color.BLACK);
 		for(int a=laneHeight;a<laneHeight*4;a=a+laneHeight) {
 			for(int b=0;b<getWidth();b+=40) {
 				g.fillRect(b, 420, 30, 5);
@@ -132,7 +127,7 @@ public class Create_new_city extends JPanel {
 		g.setColor(Color.GRAY);
 		g.fillRect(150, 400, 50, 600);
 		
-		g.setColor(Color.WHITE);
+		g.setColor(Color.BLACK);
 		for(int a=laneHeight;a<laneHeight*4;a=a+laneHeight) {
 			for(int b=430;b<getHeight();b+=40) {
 				g.fillRect(173, b, 5, 30);
@@ -144,31 +139,12 @@ public class Create_new_city extends JPanel {
 		g.setColor(Color.GRAY);
 		g.fillRect(650, 400, 50, 600);
 		
-		g.setColor(Color.WHITE);
+		g.setColor(Color.BLACK);
 		for(int a=laneHeight;a<laneHeight*4;a=a+laneHeight) {
 			for(int b=430;b<getHeight();b+=40) {
 				g.fillRect(673, b, 5, 30);
 			}
 		}}
-//		signal(372, 60,g,false,false,true,false);
-//		signal(310, 117,g,false,false,true,true);
-//		signal(372, 150,g,false,true,true,false);
-//		signal(372, 360,g,false,true,true,false);
-//		signal(395, 117,g,false,false,true,true);
-//		signal(170, 445,g,true,false,true,false);
-//		signal(372, 445,g,true,false,true,false);
-//		signal(670, 445,g,true,false,true,false);	
-		
-//		s=new Signal(true,false,false,372, 60,false);
-//		s.setSignal(false, true, false);
-
-//		signal(310, 117,g,true,false,false,true);
-//		signal(372, 150,g,true,false,false,false);
-//		signal(372, 360,g,true,false,false,false);
-//		signal(395, 117,g,true,false,false,true);
-//		signal(170, 445,g,true,false,false,false);
-//		signal(372, 445,g,true,false,false,false);
-//		signal(670, 445,g,true,false,false,false);	
 		
 		for(int a=0;a<s.size();a++) {
 			s.get(a).paint_component(g);
@@ -183,31 +159,31 @@ public class Create_new_city extends JPanel {
 			Vehicle vehicle=v.get(i);
 			
 			
-			if(vehicle.turn1==true & !vehicle.road.equals("in") ) {
+			if(vehicle.TURN_1 ==true & !vehicle.TRAFFIC_ROAD.equals("in") ) {
 				vehicle.setY(vehicle.getY()+vehicle.getSpeed() );
-				vehicle.setPosition(vehicle.getY()+vehicle.getSpeed());
+				vehicle.setVEHICLE_POSITION(vehicle.getY()+vehicle.getSpeed());
 				vehicle.setRoad(vehicle.getX(), vehicle.getY());
 				
 				
 				
 			}
-			else if(vehicle.turn2==true & !vehicle.road.equals("in")){
+			else if(vehicle.TURN_2 ==true & !vehicle.TRAFFIC_ROAD.equals("in")){
 				vehicle.setY(vehicle.getY()-vehicle.getSpeed());
-				vehicle.setPosition(vehicle.getY()-vehicle.getSpeed());
+				vehicle.setVEHICLE_POSITION(vehicle.getY()-vehicle.getSpeed());
 				vehicle.setRoad(vehicle.getX(), vehicle.getY());
 			
 				
 				}
-			else if(vehicle.turn3==true & !vehicle.road.equals("in")){
+			else if(vehicle.TURN_3 ==true & !vehicle.TRAFFIC_ROAD.equals("in")){
 				vehicle.setX(vehicle.getX()-vehicle.getSpeed());
-				vehicle.setPosition(vehicle.getX()-vehicle.getSpeed());
+				vehicle.setVEHICLE_POSITION(vehicle.getX()-vehicle.getSpeed());
 				vehicle.setRoad(vehicle.getX(), vehicle.getY());
 				
 			
 			}
-			else if(vehicle.turn3==false & vehicle.turn3==false & vehicle.turn3==false & !vehicle.road.equals("in")) {
+			else if(vehicle.TURN_3 ==false & vehicle.TURN_3 ==false & vehicle.TURN_3 ==false & !vehicle.TRAFFIC_ROAD.equals("in")) {
 				vehicle.setX(vehicle.getX()+vehicle.getSpeed());
-				vehicle.setPosition(vehicle.getX()+vehicle.getSpeed());
+				vehicle.setVEHICLE_POSITION(vehicle.getX()+vehicle.getSpeed());
 				vehicle.setRoad(vehicle.getX(), vehicle.getY());
 				
 			
@@ -216,14 +192,14 @@ public class Create_new_city extends JPanel {
 				if(vehicle.current==true) {
 					
 					int count=0;
-					if(vehicle.signal.equals("s1")) {count=0;}
-					else if(vehicle.signal.equals("s2")) {count=1;}
-					else if(vehicle.signal.equals("s3")) {count=2;}
-					else if(vehicle.signal.equals("s4")) {count=3;}
-					else if(vehicle.signal.equals("s5")) {count=4;}
-					else if(vehicle.signal.equals("s6")) {count=5;}
-					else if(vehicle.signal.equals("s7")) {count=6;}
-					else if(vehicle.signal.equals("s8")) {count=7;}
+					if(vehicle.TRAFFIC_SIGNAL.equals("s1")) {count=0;}
+					else if(vehicle.TRAFFIC_SIGNAL.equals("s2")) {count=1;}
+					else if(vehicle.TRAFFIC_SIGNAL.equals("s3")) {count=2;}
+					else if(vehicle.TRAFFIC_SIGNAL.equals("s4")) {count=3;}
+					else if(vehicle.TRAFFIC_SIGNAL.equals("s5")) {count=4;}
+					else if(vehicle.TRAFFIC_SIGNAL.equals("s6")) {count=5;}
+					else if(vehicle.TRAFFIC_SIGNAL.equals("s7")) {count=6;}
+					else if(vehicle.TRAFFIC_SIGNAL.equals("s8")) {count=7;}
 					if(s.size()!=0) {
 					if(count==0) {
 						s.get(count).set_signal_color(false, false, true);
@@ -238,24 +214,24 @@ public class Create_new_city extends JPanel {
 						}
 						
 					}}
-					if(vehicle.turn1==true) {
+					if(vehicle.TURN_1 ==true) {
 						vehicle.setY(vehicle.getY()+vehicle.getSpeed() );
 						vehicle.setRoad(vehicle.getX(), vehicle.getY());	
 					}
-					else if(vehicle.turn2==true){
+					else if(vehicle.TURN_2 ==true){
 						vehicle.setY(vehicle.getY()-vehicle.getSpeed());
 						
 						vehicle.setRoad(vehicle.getX(), vehicle.getY());
 					
 						
 						}
-					else if(vehicle.turn3==true ){
+					else if(vehicle.TURN_3 ==true ){
 						vehicle.setX(vehicle.getX()-vehicle.getSpeed());
 						vehicle.setRoad(vehicle.getX(), vehicle.getY());
 						
 					
 					}
-					else if(vehicle.turn3==false & vehicle.turn3==false & vehicle.turn3==false ) {
+					else if(vehicle.TURN_3 ==false & vehicle.TURN_3 ==false & vehicle.TURN_3 ==false ) {
 						vehicle.setX(vehicle.getX()+vehicle.getSpeed());
 						vehicle.setRoad(vehicle.getX(), vehicle.getY());
 						

@@ -20,7 +20,7 @@ public class Traffic_simulator extends JFrame implements Runnable,ActionListener
 	private City_map map =new City_map();
 	private Traffic_light current_traffic_light;
 	private JPanel whole_content_screen;
-	private boolean running=false;
+	private boolean program_run =false;
 	boolean open =false;
 	int index=0;
 	int i=0;
@@ -95,6 +95,7 @@ public class Traffic_simulator extends JFrame implements Runnable,ActionListener
 
 		//set button for create simulation mode
 		JButton create_city_button = new JButton("Create");
+
 		//set button component
 		create_city_button.setFont(new Font("Tahoma", Font.BOLD, 15));
 		create_city_button.setBounds(40, 154, 89, 23);
@@ -153,10 +154,47 @@ public class Traffic_simulator extends JFrame implements Runnable,ActionListener
 
 		//change every time vehicles spawn in
 		label.setText(String.valueOf(total));
-		label.setForeground(Color.WHITE);
+		label.setForeground(Color.BLACK);
 		label.setFont(new Font("Tahoma", Font.BOLD, 16));
 		label.setBounds(104, 500, 67, 23);
 		whole_content_screen.add(label);
+
+		//open city button listener
+		open_city_button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//create checking for current city
+				if(city>0) {
+					String name=JOptionPane.showInputDialog("Enter city name");
+					for(int i=0;i<city;i++) {
+
+						if(new_city[i].name.equalsIgnoreCase(name)) {
+							//set visible of buttons
+							open=true;
+							index= new_city[i].roads;
+							i=i;
+							new_city[i].setVisible(true);
+							run_button.setVisible(true);
+							stop_button.setVisible(true);
+
+							open_city_button.setVisible(false);
+							edit_city_button.setVisible(false);
+							create_city_button.setVisible(false);
+							mode_labeling.setText("Mode: Sim");
+							current_city_status.setText("City:"+ new_city[i].name);
+							current_city_status.setVisible(true);
+							vehicles_count.setVisible(true);
+							label.setVisible(true);
+							total=0;
+
+						}
+					}
+
+				}
+				else {
+					JOptionPane.showMessageDialog(whole_content_screen, "No Cities Found!");
+				}
+			}
+		});
 
 		//add action listener for button press simulation mode
 		simulation_mode_button.addActionListener(new ActionListener() {
@@ -194,50 +232,6 @@ public class Traffic_simulator extends JFrame implements Runnable,ActionListener
 			}
 		});
 
-		//set city button listener to create city
-		create_city_button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				if(city<5) {
-					map.setVisible(true);
-					open_city_button.setVisible(false);
-					edit_city_button.setVisible(false);
-					create_city_button.setVisible(false);
-					JOptionPane j=new JOptionPane();
-					String name=j.showInputDialog("Enter city name");
-					int roads=Integer.parseInt(j.showInputDialog("Enter no of Roads"));
-				
-					run_button.setVisible(false);
-					stop_button.setVisible(false);
-					open_city_button.setVisible(true);
-					edit_city_button.setVisible(true);
-					create_city_button.setVisible(true);
-					Status_label.setVisible(false);
-					mode_labeling.setText("Mode: City");
-					current_city_status.setVisible(false);
-					vehicles_count.setVisible(false);
-					label.setVisible(false);
-
-					//call function of creating new city
-					Create_new_city create=new Create_new_city(name,roads);
-					new_city[city]=create;
-					j.showMessageDialog(whole_content_screen, "You have created a city "+name+".");
-					map.setVisible(false);
-					whole_content_screen.add(new_city[city]);
-					for(int i=0;i<city;i++) {
-						new_city[i].setVisible(false);
-					}
-					addSignal(new_city[city].roads,city);
-					new_city[city].setVisible(true);
-					city++;
-					
-				}
-				else {
-					JOptionPane.showMessageDialog(whole_content_screen, "NO CITIES MORE THAN 5");
-				}
-				
-				
-			}
-		});
 		
 		//set edit city button listener
 		edit_city_button.addActionListener(new ActionListener() {
@@ -280,42 +274,51 @@ public class Traffic_simulator extends JFrame implements Runnable,ActionListener
 			
 		});
 
-		//open city button listener
-		open_city_button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//create checking for current city
-				if(city>0) {
-					String name=JOptionPane.showInputDialog("Enter city name");
+		//set city button listener to create city
+		create_city_button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(city<5) {
+					map.setVisible(true);
+					open_city_button.setVisible(false);
+					edit_city_button.setVisible(false);
+					create_city_button.setVisible(false);
+					JOptionPane j=new JOptionPane();
+					String name=j.showInputDialog("Enter city name");
+					int roads=Integer.parseInt(j.showInputDialog("Enter no of Roads"));
+
+					run_button.setVisible(false);
+					stop_button.setVisible(false);
+					open_city_button.setVisible(true);
+					edit_city_button.setVisible(true);
+					create_city_button.setVisible(true);
+					Status_label.setVisible(false);
+					mode_labeling.setText("Mode: City");
+					current_city_status.setVisible(false);
+					vehicles_count.setVisible(false);
+					label.setVisible(false);
+
+					//call function of creating new city
+					Create_new_city create=new Create_new_city(name,roads);
+					new_city[city]=create;
+					j.showMessageDialog(whole_content_screen, "You have created a city "+name+".");
+					map.setVisible(false);
+					whole_content_screen.add(new_city[city]);
 					for(int i=0;i<city;i++) {
-						
-						if(new_city[i].name.equalsIgnoreCase(name)) {
-							//set visible of buttons
-							open=true;
-							index= new_city[i].roads;
-							i=i;
-							new_city[i].setVisible(true);
-							run_button.setVisible(true);
-							stop_button.setVisible(true);
-							
-							open_city_button.setVisible(false);
-							edit_city_button.setVisible(false);
-							create_city_button.setVisible(false);
-							mode_labeling.setText("Mode: Sim");
-							current_city_status.setText("City:"+ new_city[i].name);
-							current_city_status.setVisible(true);
-							vehicles_count.setVisible(true);
-							label.setVisible(true);
-							total=0;
-							
-											}
+						new_city[i].setVisible(false);
 					}
-					
+					addSignal(new_city[city].roads,city);
+					new_city[city].setVisible(true);
+					city++;
+
 				}
 				else {
-					JOptionPane.showMessageDialog(whole_content_screen, "No Cities Found!");
+					JOptionPane.showMessageDialog(whole_content_screen, "NO CITIES MORE THAN 5");
 				}
+
+
 			}
 		});
+
 		
 	}
 
@@ -359,12 +362,10 @@ public class Traffic_simulator extends JFrame implements Runnable,ActionListener
 			new_city[i].addSignal(current_traffic_light);
 			current_traffic_light =new Traffic_light(true,false,false,372, 60,false);
 			new_city[i].addSignal(current_traffic_light);
-			
 			current_traffic_light =new Traffic_light(true,false,false,372, 150,false);
 			new_city[i].addSignal(current_traffic_light);
 			current_traffic_light =new Traffic_light(true,false,false,395, 117,true);
 			new_city[i].addSignal(current_traffic_light);
-
 			current_traffic_light =new Traffic_light(true,false,false,170, 445,false);
 			new_city[i].addSignal(current_traffic_light);
 			current_traffic_light =new Traffic_light(true,false,false,372, 445,false);
@@ -504,7 +505,7 @@ public class Traffic_simulator extends JFrame implements Runnable,ActionListener
 			else if(spawn_chance==4) {
 				//chance fo spawn bus
 				vehicle[total]=new Vehicle_bus(810, 135);
-				vehicle[total].turn3=true;
+				vehicle[total].TURN_3 =true;
 				map.addVehicle(vehicle[total]);
 				
 				total++;}
@@ -518,7 +519,7 @@ public class Traffic_simulator extends JFrame implements Runnable,ActionListener
 
 	//running function and adding new vehicles for every set of time
 	public void run() {
-		while(running==true & open==false) {
+		while(program_run ==true & open==false) {
 			//set map repainting for every time
 			map.step();
 			map.repaint();
@@ -538,7 +539,7 @@ public class Traffic_simulator extends JFrame implements Runnable,ActionListener
 			}
 		}
 
-		while(running==true & open==true) {
+		while(program_run ==true & open==true) {
 			
 			new_city[i].step();
 			new_city[i].repaint();
@@ -566,14 +567,14 @@ public class Traffic_simulator extends JFrame implements Runnable,ActionListener
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource().equals(run_button)) {
 			
-			if(running==false) {
-				running=true;
+			if(program_run ==false) {
+				program_run =true;
 				Thread t=new Thread(this);
 				t.start();
 			}
 			}
 		if(event.getSource().equals(stop_button)) {
-			running=false;
+			program_run =false;
 		}
 	}
 	

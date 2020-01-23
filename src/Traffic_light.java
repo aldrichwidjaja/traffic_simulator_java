@@ -12,6 +12,7 @@ public class Traffic_light {
 	private boolean turn=false;
 	
 	public Traffic_light(boolean red, boolean yellow, boolean green, int x, int y, boolean turn) {
+		//SET COLOR VARIABLE
 		this.red=red;
 		this.yellow=yellow;
 		this.green=green;
@@ -25,7 +26,8 @@ public class Traffic_light {
 	}
 	public void paint_component(Graphics g) {
 		if(turn==false) {
-			g.setColor(Color.BLACK);
+			//SET COLOR OF TRAFFIC LIGHT
+			g.setColor(Color.WHITE);
 			g.fillRect(x, y, 10, 40);
 		
 			if(this.red==true) {
@@ -42,7 +44,7 @@ public class Traffic_light {
 				g.fillOval(x+1, y+10, 8, 8);}
 			}
 		else {
-			g.setColor(Color.BLACK);
+			g.setColor(Color.WHITE);
 			g.fillRect(x, y, 40, 10);
 			if(this.red==true) {
 				g.setColor(Color.RED);

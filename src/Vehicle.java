@@ -7,99 +7,91 @@ public class Vehicle {
 		int speed;
 		int width;
 		int height;
-		int position=0;
+		int VEHICLE_POSITION =0;
 
 	//set road and signal
-		String road;
-		String signal="";
+		String TRAFFIC_ROAD;
+		String TRAFFIC_SIGNAL ="";
 
 	//Get turn event
 		boolean current=false;
-		boolean turn1=false;
-		boolean turn2=false;
-		boolean turn3=false;
-		int in=0;
-		int in1=0;
-		int in3;
+		boolean TURN_1 =false;
+		boolean TURN_2 =false;
+		boolean TURN_3 =false;
+		int BOOM_1 =0;
+		int BOOM_2 =0;
+		int BOOM_3;
 		boolean check=false;
 		
 		//set class for vehicle to get current place of road
-		String previous;
+		String PREVIOUS_VEHICLE;
 		public Vehicle(int x,int y) {
-			
+			//set x y boom
 			this.x=x;
 			this.y=y;
-			this.in3=0;
+			this.BOOM_3 =0;
 			if(x>=0 & x<=305 & y==104 || y==135 & x>=0 & x<=310) {
-				this.road="r1";
-				this.signal="s1";
+				//set road signal
+				this.TRAFFIC_ROAD ="r1";
+				this.TRAFFIC_SIGNAL ="s1";
 				
 				
 			}
 			else if(y>=0 & y<=55 & x==354 || x==385 & y>=0 & y<=60) {
-				this.road="r2";
-				this.signal="s2";
+				//set road signal
+				this.TRAFFIC_ROAD ="r2";
+				this.TRAFFIC_SIGNAL ="s2";
 				
 				
 				
 			}
 			else if(y<=370 & y>=165 & x==385 ||x==354 & y<=365 & y>=150) {
-				this.road="r3";
-				this.signal="s3";
+				//set road signal
+				this.TRAFFIC_ROAD ="r3";
+				this.TRAFFIC_SIGNAL ="s3";
 				
 			
 			}
 			else if(x>=395 & x<=820 & y==135 || x>=395 & x<=820 & y==104) {
-				this.road="r4";
-				this.signal="s4";
+				//set road signal
+				this.TRAFFIC_ROAD ="r4";
+				this.TRAFFIC_SIGNAL ="s4";
 				
 				
 			}
 			else if(y<=580 & y>=445 & x==185 || x==155 & y<=580 & y>=445) {
-				this.road="r5";
-				this.signal="s5";
+				//set road signal
+				this.TRAFFIC_ROAD ="r5";
+				this.TRAFFIC_SIGNAL ="s5";
 			
 			}
 			else if(y<=580 & y>=445 & x==385 || y<=580 & y>=445 & x==355 ) {
-				this.road="r6";
-				this.signal="s6";
+				//set road signal
+				this.TRAFFIC_ROAD ="r6";
+				this.TRAFFIC_SIGNAL ="s6";
 				
 				
 			}
 			else if(y<=580 & y>=445 & x==685 || y<=580 & y>=445 & x==655) {
-				this.road="r7";
-				this.signal="s7";
+				this.TRAFFIC_ROAD ="r7";
+				this.TRAFFIC_SIGNAL ="s7";
 				
 				
 			}
 			else if(x>=0 & x<=820 & y==404 || x>=0 & x<=820 & y==432 ) {
-				this.road="main";
-				this.signal="main";
+				this.TRAFFIC_ROAD ="main";
+				this.TRAFFIC_SIGNAL ="main";
 			
 				
 			}
 			
 		}
 		public void paint_component(Graphics g) {
-			
+			//set paint component but take super
 		}
-		public void setPosition(int p) {
-			this.position=p;
-		}
-		public int getX() {
-			return x;
-		}
-		
-		public void setX(int x) {
-			this.x = x;
-		}
-		
-		public int getY() {
-			return y;
-		}
-		
-		public void setY(int y) {
-			this.y = y;
+		public void setVEHICLE_POSITION(int p) {
+			//setposition vehicle
+			this.VEHICLE_POSITION =p;
 		}
 		
 		public int getSpeed() {
@@ -109,167 +101,201 @@ public class Vehicle {
 		public void setSpeed(int speed) {
 			this.speed = speed;
 		}
+
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
 		
 		public int getWidth() {
 			return width;
 		}
-		
+
 		public void setWidth(int width) {
 			this.width = width;
 		}
-		
-		public int getHeight() {
-			return height;
-		}
-		
-		public void setHeight(int height) {
-			this.height = height;
-		}
 
+		//setter for road
 		public void setRoad(int x,int y) {
 			if(x>=-40 & x<=305 & y==104 || y==135 & x>=0 & x<=310) {
-				this.road="r1";
-				this.signal="s1";
+				//set road condition 1
+				this.TRAFFIC_ROAD ="r1";
+				this.TRAFFIC_SIGNAL ="s1";
 				this.current=false;
-				this.previous=this.road;
+				this.PREVIOUS_VEHICLE =this.TRAFFIC_ROAD;
 				if(x<-20) {
 					check=true;
 				}
 				
 			}
 			else if(y>=0 & y<=55 & x==354 || x==385 & y>-30 & y<=60) {
-				this.road="r2";
-				this.signal="s2";
+				//set road condition 2
+				this.TRAFFIC_ROAD ="r2";
+				this.TRAFFIC_SIGNAL ="s2";
 				this.current=false;
-				this.previous=this.road;
+				this.PREVIOUS_VEHICLE =this.TRAFFIC_ROAD;
 				if(y<-20) {
 					check=true;
 				}
 				
 			}
 			else if(y<=370 & y>=165 & x==385 ||x==354 & y<=355 & y>=150) {
-				this.road="r3";
-				this.signal="s3";
+				//set road condition 3
+				this.TRAFFIC_ROAD ="r3";
+				this.TRAFFIC_SIGNAL ="s3";
 				this.current=false;
-				this.previous=this.road;
+				this.PREVIOUS_VEHICLE =this.TRAFFIC_ROAD;
 			}
 			else if(x>=409 & x<=820 & y==135 || x>=390 & x<=890 & y==104) {
-				this.road="r4";
-				this.signal="s4";
+				//set road condition 4
+				this.TRAFFIC_ROAD ="r4";
+				this.TRAFFIC_SIGNAL ="s4";
 				this.current=false;
-				this.previous=this.road;
+				this.PREVIOUS_VEHICLE =this.TRAFFIC_ROAD;
 				if(x>870) {
 					check=true;
 				}
 				
 			}
 			else if(y<=560 & y>=465 & x==185 || x==155 & y<=560 & y>=445) {
-				this.road="r5";
-				this.signal="s5";
+				//set road condition 5
+				this.TRAFFIC_ROAD ="r5";
+				this.TRAFFIC_SIGNAL ="s5";
 				this.current=false;
-				this.previous=this.road;
+				this.PREVIOUS_VEHICLE =this.TRAFFIC_ROAD;
 			}
 			else if(y<=560 & y>=465 & x==385 || y<=560 & y>=445 & x==355 ) {
-				this.road="r6";
-				this.signal="s6";
+				//set road condition 6
+				this.TRAFFIC_ROAD ="r6";
+				this.TRAFFIC_SIGNAL ="s6";
 				this.current=false;
-				this.previous=this.road;
+				this.PREVIOUS_VEHICLE =this.TRAFFIC_ROAD;
 			}
 			else if(y<=560 & y>=465 & x==685 || y<=560 & y>=445 & x==655) {
-				this.road="r7";
-				this.signal="s7";
+				//set road condition 7
+				this.TRAFFIC_ROAD ="r7";
+				this.TRAFFIC_SIGNAL ="s7";
 				this.current=false;
-				this.previous=this.road;
+				this.PREVIOUS_VEHICLE =this.TRAFFIC_ROAD;
 			}
 			else if(x>=0 & x<=820 & y==404 || x>=0 & x<=850 & y==432 ) {
-				this.road="main";
-				this.previous=this.road;
-				this.signal="main";
+				//set road condition 8
+				this.TRAFFIC_ROAD ="main";
+				this.PREVIOUS_VEHICLE =this.TRAFFIC_ROAD;
+				this.TRAFFIC_SIGNAL ="main";
 				if(this.x>780) {
 					this.check=true;
 				}
 			}
 			else {
-				
-				this.road="in";
-				if(this.in3>=3) {
+				this.TRAFFIC_ROAD ="in";
+				if(this.BOOM_3 >=3) {
 					this.current=true;
-				if(this.in>=3) {
-					if(this.previous.equals("r1")) {
+				if(this.BOOM_1 >=3) {
+					if(this.PREVIOUS_VEHICLE.equals("r1")) {
+						//previous vehicle
 						this.y=59;
 						this.x=385;
 						turn2();
-						this.turn1=false;
-						this.turn3=false;
-						this.road="r2";
-						this.previous=this.road;
-						in=0;
+						this.TURN_1 =false;
+						this.TURN_3 =false;
+						this.TRAFFIC_ROAD ="r2";
+						this.PREVIOUS_VEHICLE =this.TRAFFIC_ROAD;
+						BOOM_1 =0;
 						
 						
 					}
-					else if(this.previous.equals("r2")) {
-						if(in==3 & in1==0) {
-							this.turn2=false;
-							this.turn1=false;
-							this.turn3=false;
-							this.road="in";
+					else if(this.PREVIOUS_VEHICLE.equals("r2")) {
+						if(BOOM_1 ==3 & BOOM_2 ==0) {
+							//previous vehicle
+							this.TURN_2 =false;
+							this.TURN_1 =false;
+							this.TURN_3 =false;
+							this.TRAFFIC_ROAD ="in";
 							turn();
-							in=0;
+							BOOM_1 =0;
 							
 						}
-						if(in1==1) {
+						if(BOOM_2 ==1) {
+							//previous vehicle
 							this.y=104;
 							this.x=392;
-							this.road="r4";
-							in1=0;
-							this.previous=this.road;
+							this.TRAFFIC_ROAD ="r4";
+							BOOM_2 =0;
+							this.PREVIOUS_VEHICLE =this.TRAFFIC_ROAD;
 							
 						}
-						in1++;
+						BOOM_2++;
 						
 					}
-					else if(this.road.equals("r3")) {
+					else if(this.TRAFFIC_ROAD.equals("r3")) {
+						//previous vehicle
 					
 					}
-					else if(this.road.equals("r4")) {
+					else if(this.TRAFFIC_ROAD.equals("r4")) {
+						//previous vehicle
 					}
-					else if(this.previous.equals("r5")) {
+					else if(this.PREVIOUS_VEHICLE.equals("r5")) {
+						//previous vehicle
 
 						this.y=404;
 						this.x=190;
-						this.turn2=false;
-						this.turn1=false;
-						this.turn3=false;
-						this.road="main";
-						in=0;
+						this.TURN_2 =false;
+						this.TURN_1 =false;
+						this.TURN_3 =false;
+						this.TRAFFIC_ROAD ="main";
+						BOOM_1 =0;
 						turn();
 					}
-					else if(this.previous.equals("r6")) {
+					else if(this.PREVIOUS_VEHICLE.equals("r6")) {
+						//previous vehicle
 						this.y=404;
 						this.x=390;
-						this.turn2=false;
-						this.turn1=false;
-						this.turn3=false;
-						this.road="main";
-						in=0;
+						this.TURN_2 =false;
+						this.TURN_1 =false;
+						this.TURN_3 =false;
+						this.TRAFFIC_ROAD ="main";
+						BOOM_1 =0;
 						turn();
 					}
-					else if(this.previous.equals("r7")) {
+					else if(this.PREVIOUS_VEHICLE.equals("r7")) {
+						//previous vehicle
 						this.y=404;
 						this.x=690;
-						this.turn2=false;
-						this.turn1=false;
-						this.turn3=false;
-						this.road="main";
-						in=0;
+						this.TURN_2 =false;
+						this.TURN_1 =false;
+						this.TURN_3 =false;
+						this.TRAFFIC_ROAD ="main";
+						BOOM_1 =0;
 						turn();
 						
 					}
 				}
-				in++;
+				BOOM_1++;
 			}
-				this.in3++;}
+				this.BOOM_3++;}
 		}
+
+		//set turn method for getting turn 1 or turn 2 or turn 3
 		public void turn() {
 			int t=this.width;
 			this. width=this.height;
@@ -277,12 +303,12 @@ public class Vehicle {
 		}
 		
 		public void turn1() {
-			if(this.turn1==false) {
+			if(this.TURN_1 ==false) {
 			int t=0;
 			t=this.height;
 			this.height=this.width;
 			this.width=t;
-			this.turn1=true;
+			this.TURN_1 =true;
 			
 			}
 			else {
@@ -290,16 +316,16 @@ public class Vehicle {
 				t=this.height;
 				this.height=this.width;
 				this.width=t;
-				this.turn1=false;
+				this.TURN_1 =false;
 			}
 		}
 		public void turn2() {
-			if(this.turn2==false) {
+			if(this.TURN_2 ==false) {
 			int t=0;
 			t=this.height;
 			this.height=this.width;
 			this.width=t;
-			this.turn2=true;
+			this.TURN_2 =true;
 			
 			}
 			else {
@@ -307,16 +333,16 @@ public class Vehicle {
 				t=this.height;
 				this.height=this.width;
 				this.width=t;
-				this.turn2=false;
+				this.TURN_2 =false;
 			}
 		}
 		public void turn3() {
-			if(this.turn3==false) {
-				this.turn3=true;
+			if(this.TURN_3 ==false) {
+				this.TURN_3 =true;
 			
 			}
 			else {
-				this.turn3=false;
+				this.TURN_3 =false;
 			}
 		}
 	}
